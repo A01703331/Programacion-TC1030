@@ -1,4 +1,5 @@
 # Programacion-TC1030
+José Sebastián Pedrero Jiménez / A01703331
 Repositorio individual para la clase TC1030 del Tecnológico de Monterrey
 
 Una representación simplificada del uso de datos de un personaje y una cuenta entre los juegos Phantasy Star Online 2 (PSO2) y su expansión más reciente: New Genesis (NGS).
