@@ -21,16 +21,16 @@ class Cuenta {
 		//Variables de instancia
 		string name; //Nombre de la cuenta
 		bool premium; //Si tiene premium activado
-		int pl, AC, SG, FUN; // Dias que restan a premium, y divisas
+		int pl, AC, SG; // Dias que restan a premium, y divisas
 		Personaje * characters[20]; // Arreglo que guarda los personajes
 		Personaje *current_char;
 	public:
 		//Default
 		Cuenta():
-		  name("PNXXXXXXX"),premium(false),AC(0),SG(0),FUN(0){};
+		  name("PNXXXXXXX"),premium(false),pl(0),AC(0),SG(0){};
 		//Constructor
-		Cuenta(string n, bool p, int a, int s, int f):
-		  name(n),premium(p),AC(a),SG(s),FUN(f){};
+		Cuenta(string n, bool p, int pd, int a, int s):
+		  name(n),premium(p),pl(pd),AC(a),SG(s){};
 		void setName(string);
 		string getName();
 		void addLog(string date, string hour);
@@ -39,8 +39,6 @@ class Cuenta {
 		void payCurrency(int a, int s, int f);
 		Personaje chooseChar(string cn);
 		void changeClass(string c);
-		void logInPSO2();
-		void logInNGS();
 };
 
 void Cuenta::setName(string n){
@@ -79,37 +77,27 @@ void Cuenta::premiumStatus(){
 		cout << "Premium no esta activado"
 };
 
-void Cuenta::payCurrency(int a, int s, int f){
-	AC = AC - a;
-	SG = SG - s;
-	FUN = FUN - f;
-};
-
-void Cuenta::addCurrency(int a, int s, int f){
+void Cuenta::addCurrency(int a, int s){
 	AC = AC + a;
 	SG = SG + s;
-	FUN = FUN + f;
+};
+
+void Cuenta::payCurrency(int a, int s){
+	AC = AC - a;
+	SG = SG - s;
 };
 
 Personaje Cuenta::chooseChar(string cn){
-	for (int = 0; i < 19;i++)
-		if (cn == characters[i] -> getName())
+	for (int = 0; i<20; i++)
+		if (cn == characters[i] -> getCharName())
 			current_char = characters[i]
-			cout << cn < " ha sido seleccionado";
+			cout << cn << " ha sido seleccionado";
 			return current_char
 	cout << "No se ha encontrado al personaje deseado";
 };
 
 void Cuenta::changeClass(string c){
 	current_char.setClass(c);
-};
-
-void Cuenta::logInPSO2(){
-
-};
-
-void Cuenta::logInNGS(){
-
 };
 
 #endif

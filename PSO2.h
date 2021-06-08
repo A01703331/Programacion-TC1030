@@ -1,5 +1,5 @@
 /** 
- * José Sebastián Pedrero Jiménez
+ * Josï¿½ Sebastiï¿½n Pedrero Jimï¿½nez
  * A01703331
  * 11/Junio/2021
 */
@@ -7,45 +7,44 @@
 #ifndef PSO2_H_
 #define PSO2_H_
 
-#include "Account.h"
+#include "Ambient.h"
 
 #include <iostream>
 using namespace std;
 
-//Declaracion de clase AmbientePSO2
-class AmbientePSO2 {
+//Declaracion de clase PSO2
+class PSO2:public Ambiente {
 	//Variables de instancia
-	protected:
-		int meseta;
-		string char_class;
-		int level;
-		Cuenta * accs[2000]; // Cuentas que inician sesion al servidor
+	private:
+		int fun;
+		string pr;
 	public:
 		//Default
-		AmbientePSO2(): meseta(0),char_class("Hunter"),level(1){};
+		PSO2():Ambiente(),fun(0){};
 		//Constructor
-		AmbientePSO2(int m,string c,int lv):
-		  meseta(m),char_class(c),level(lv){};
-		void addMoney(int m);
-		void payMoney(int m);
-		void changeClass(string c);
-		void addLv();
+		PSO2(int m,string c,int lv, int f):
+		  Ambiente(m, c, lv), fun(f){};
+		void addFUN(int f);
+		void payFUN(int f);
+		void logIn(Cuenta);
+		void print();
 };
 
-void AmbientePSO2::addMoney(int m){
-	meseta = meseta + m;
+void PSO2::addFUN(int f){
+	fun = fun + f;
 };
 
-void AmbientePSO2::payMoney(int m){
-	meseta = meseta - m;
+void PSO2::payFUN(int f){
+	fun = fun - f;
 };
 
-void AmbientePSO2::changeClass(string c){
-	char_class = c;
+void PSO2::logIn(Cuenta *C){
+	pr = "Bienvenido, "+C->getName()+" a New Genesis!";
+	return pr;
 };
 
-void AmbientePSO2::addLv(){
-	level++;
+void PSO2::print(){
+	cout << pr;
 };
 
 #endif

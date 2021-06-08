@@ -1,5 +1,5 @@
 /** 
- * José Sebastián Pedrero Jiménez
+ * Josï¿½ Sebastiï¿½n Pedrero Jimï¿½nez
  * A01703331
  * 11/Junio/2021
 */
@@ -18,16 +18,32 @@ class Personaje {
 	private:
 		string char_name; // Nombre del personaje
 		string char_class; // Clase del personaje
-		Accesorios * phasion[500]; // Arreglo para guardar los accesorios desbloqueados
+		Accesorios * phasion[500]; // Arreglo para guardar accesorios
 	public:
 		//Default
-		Personaje():char_name("Ash"){};
+		Personaje():char_name("Ash"),char_class("Hunter"){};
 		//Constructor
-		Personaje(string cn):
-		  char_name(cn){};
+		Personaje(string cn, string cc):char_name(cn),char_class(cc){};
 		void setCharName(string);
 		string getCharName();
-		void setClass(string c);
+		void setClass(string);
+		string getClassName();
+};
+
+void Personaje::setCharName(string n){
+	char_name = n;
+};
+
+string Personaje::getCharName(){
+	return char_name;
+};
+
+void Personaje::setClass(string c){
+	char_class = c;
+};
+
+string Personaje::getClass(){
+	return char_class;
 };
 
 #endif

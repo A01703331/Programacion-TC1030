@@ -11,19 +11,27 @@
 using namespace std;
 
 //Declaracion de clase Mociones
-class Mocion {
+class Mociones {
 	//Variables de instancia
 	private:
 		int id, unlock;
+		string
 	public:
+		Mociones():id(001),unlock(0){};
+		Mociones(int mid, int u):id(mid),unlock(u){};
 		void unlockChange();
+		string getMtnName();
 };
 
-void Mocion::unlockChange(){
+void Mociones::unlockChange(){
 	if (unlock == 0)
 		unlock++;
 	else
-		cout << "Ya esta desbloqueado para toda la cuenta" << endl;
+		cout << "Esta mocion ya esta desbloqueada" << endl;
+};
+
+string Mociones::getMtnName(){
+	return mname;
 };
 
 #endif
