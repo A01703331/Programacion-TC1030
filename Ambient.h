@@ -20,7 +20,7 @@ class Ambiente {
 		string char_class;
 		int level;
 		Cuenta * accs[2000]; // Cuentas que inician sesion al servidor
-		int cid
+		int cid;
 	public:
 		//Default
 		Ambiente(): meseta(0),char_class("Hunter"),level(1){};
@@ -29,11 +29,11 @@ class Ambiente {
 		  meseta(m),char_class(c),level(lv){};
 		void addMoney(int);
 		void payMoney(int);
-		void addAccounts();
-		virtual void changeClass(Cuenta, string);
+		void addAccounts(Cuenta*);
+		virtual void changeClass(Cuenta*, string);
 		void addLv();
         virtual void logIn()=0;
-        virtual string print()=0;
+        virtual void print()=0;
 };
 
 void Ambiente::addMoney(int m){
@@ -49,7 +49,7 @@ void Ambiente::addAccounts(Cuenta *C){
 };
 
 void Ambiente::changeClass(Cuenta *C, string cl){
-    for (i=0; i<2000; i++)
+    for (int i=0; i<2000; i++)
         if (accs[i] == C)
         	accs[i] -> changeClass(cl);
 };

@@ -27,17 +27,17 @@ class NGS:public Ambiente {
 		NGS(int m,string c,int lv, int bp):
 		  Ambiente(m,c,lv),battle_power(bp){};
 		void calculateBattlePower();
-		void logIn(Cuenta);
+		string logIn(Cuenta*);
 		void print();
 };
 
 void NGS::calculateBattlePower(){
-	bp = (NGS.level * 50) + 50;
+	battle_power = (level * 50) + 50;
 };
 
 string NGS::logIn(Cuenta *C){
     pr = "Bienvenido, "+C->getName()+" a PSO2!";
-	return pr
+	return pr;
 };
 
 void NGS::print(){

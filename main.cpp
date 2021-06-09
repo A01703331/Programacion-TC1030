@@ -12,5 +12,6 @@
 using namespace std;
 
 int main(){
-	Accesorios();
+    Accesorios Diadema;
+    Diadema.print();
 };

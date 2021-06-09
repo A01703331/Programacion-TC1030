@@ -17,11 +17,13 @@ class Accesorios {
 		int unlock, id;
 		string aname;
 	public:
-		Accesorios():id(0001),unlock(0),aname("");
-		Accesorios(int idn, int u, string an):
-		  id(idn),unlock(u),aname(an){};
+		//Default
+		Accesorios():id(1),unlock(0),aname(""){};
+		//Constructor
+		Accesorios(int idn, int u, string an){};
 		void unlockChange();
 		string getAccsName();
+		void print();
 };
 
 void Accesorios::unlockChange(){
@@ -34,7 +36,11 @@ void Accesorios::unlockChange(){
 };
 
 string Accesorios::getAccsName(){
-	return aname
-}
+	return aname;
+};
+
+void Accesorios::print(){
+	cout << unlock << id << aname << endl;
+};
 
 #endif

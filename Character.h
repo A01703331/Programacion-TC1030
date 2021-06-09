@@ -27,7 +27,7 @@ class Personaje {
 		void setCharName(string);
 		string getCharName();
 		void setClass(string);
-		string getClassName();
+		string getClass();
 };
 
 void Personaje::setCharName(string n){

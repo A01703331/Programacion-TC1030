@@ -26,7 +26,7 @@ class PSO2:public Ambiente {
 		  Ambiente(m, c, lv), fun(f){};
 		void addFUN(int f);
 		void payFUN(int f);
-		void logIn(Cuenta);
+		string logIn(Cuenta*);
 		void print();
 };
 
@@ -38,7 +38,7 @@ void PSO2::payFUN(int f){
 	fun = fun - f;
 };
 
-void PSO2::logIn(Cuenta *C){
+string PSO2::logIn(Cuenta *C){
 	pr = "Bienvenido, "+C->getName()+" a New Genesis!";
 	return pr;
 };

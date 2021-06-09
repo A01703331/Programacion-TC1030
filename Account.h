@@ -35,9 +35,9 @@ class Cuenta {
 		string getName();
 		void addLog(string date, string hour);
 		void premiumStatus();
-		void addCurrency(int a, int s, int f);
-		void payCurrency(int a, int s, int f);
-		Personaje chooseChar(string cn);
+		void addCurrency(int a, int s);
+		void payCurrency(int a, int s);
+		void chooseChar(string cn);
 		void changeClass(string c);
 };
 
@@ -69,12 +69,15 @@ void Cuenta::addLog(string date, string hour){
 */
 
 void Cuenta::premiumStatus(){
-	if (pl > 0)
-		premium = true
+	premium = false;
+	if (pl > 0){
+		premium = true;
 		cout << "Quedan " << pl << " dias de premium";
-	else 
-		premium = false
-		cout << "Premium no esta activado"
+	}
+	else {
+		premium = false;
+		cout << "Premium no esta activado";
+	}
 };
 
 void Cuenta::addCurrency(int a, int s){
@@ -87,17 +90,18 @@ void Cuenta::payCurrency(int a, int s){
 	SG = SG - s;
 };
 
-Personaje Cuenta::chooseChar(string cn){
-	for (int = 0; i<20; i++)
-		if (cn == characters[i] -> getCharName())
-			current_char = characters[i]
+void Cuenta::chooseChar(string cn){
+	for (int i = 0; i<20; i++){
+		if (cn == characters[i] -> getCharName()){
+			current_char = characters[i];
 			cout << cn << " ha sido seleccionado";
-			return current_char
+		}
+	}
 	cout << "No se ha encontrado al personaje deseado";
 };
 
 void Cuenta::changeClass(string c){
-	current_char.setClass(c);
+	current_char->setClass(c);
 };
 
 #endif

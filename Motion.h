@@ -15,10 +15,11 @@ class Mociones {
 	//Variables de instancia
 	private:
 		int id, unlock;
-		string
+		string mname;
 	public:
-		Mociones():id(001),unlock(0){};
-		Mociones(int mid, int u):id(mid),unlock(u){};
+		Mociones():id(001),unlock(0),mname(""){};
+		Mociones(int mid, int u, string mn):
+		  id(mid),unlock(u),mname(mn){};
 		void unlockChange();
 		string getMtnName();
 };
