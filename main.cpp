@@ -15,14 +15,14 @@ int main(){
     string name, cname, cclass; // Variables para hacer input de creacion
     int amb, ccreate=0; // Variables para hacer input de creacion
     Ambiente *game[2]; // Arreglo de apuntadores de Ambientes de juego
-    Cuenta *ptrdummy; //Apuntador de clase Cuenta
+    Cuenta *ptrdummy; // Apuntador de clase Cuenta
     game[0] = new PSO2();
     game[1] = new NGS();
     cout << "Nombre de la cuenta" << endl;
     cin >> name;
     Cuenta dummy(name,false,0,0,0);
     ptrdummy = &dummy;
-    while (ccreate == 0) {   
+    while (ccreate != (0||1)) {   
         cout << "Tienes un personaje? 0 - No // 1 - Si" << endl;
         cin >> ccreate;
         if (ccreate == 0){

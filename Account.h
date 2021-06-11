@@ -37,8 +37,8 @@ class Cuenta {
 		void premiumStatus();
 		void addCurrency(int, int);
 		void payCurrency(int, int);
-		void addChars(string, string);
-		Personaje& chooseChar(string);
+		Personaje *addChars(string, string);
+		void chooseChar(string);
 		void changeClass(string);
 };
 
@@ -92,18 +92,28 @@ void Cuenta::payCurrency(int a, int s){
 };
 
 
-void Cuenta::addChars(string n, string c){
+Personaje *Cuenta::addChars(string n, string c){
+	int i = 0;
+	bool flag = false;
 	for (int i = 0; i<20; i++){
 		if (characters[i] == NULL) {
 			characters[i] = new Personaje(n,c);
 			cout << characters[i]->getCharName() << " ha sido agregado.";
 			cout << endl;
-			break;
+			flag = true;
+			return characters[i] = new Personaje(n,c);
 		}
-	};
+	}
+	if (flag == false){
+		cout << "No se pudo agregar al personaje";
+		return characters[i];
+	}
+	else {
+		return characters[i];
+	}
 };
 
-Personaje& Cuenta::chooseChar(string cn){
+void Cuenta::chooseChar(string cn){
 	bool flag = false;
 	for (int i = 0; i<20; i++){
 		if (characters[i] != NULL) {

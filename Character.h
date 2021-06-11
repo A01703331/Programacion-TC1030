@@ -46,7 +46,7 @@ string Personaje::getClass(){
 	return char_class;
 };
 
-void Personaje::addAccesories(string){
+void Personaje::addAccesories(string A){
 	phashion[asid] = A;
 	asid++;
 }
