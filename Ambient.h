@@ -20,7 +20,7 @@ class Ambiente {
 		string char_class;
 		int level;
 		Cuenta * accs[2000]; // Cuentas que inician sesion al servidor
-		int cid;
+		int acid = 0;// Navegador del arreglo accs de addAccounts
 	public:
 		//Default
 		Ambiente(): meseta(0),char_class("Hunter"),level(1){};
@@ -32,8 +32,8 @@ class Ambiente {
 		void addAccounts(Cuenta*);
 		virtual void changeClass(Cuenta*, string);
 		void addLv();
-        virtual void logIn()=0;
-        virtual void print()=0;
+        virtual void logIn(Cuenta*)=0; // Abstracto a sobreescribir
+        virtual void print()=0; // Abstracto a sobreescribir
 };
 
 void Ambiente::addMoney(int m){
@@ -45,7 +45,8 @@ void Ambiente::payMoney(int m){
 };
 
 void Ambiente::addAccounts(Cuenta *C){
-	accs[cid]  = C;
+	accs[acid] = C;
+	acid++;
 };
 
 void Ambiente::changeClass(Cuenta *C, string cl){

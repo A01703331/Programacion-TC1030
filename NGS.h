@@ -8,7 +8,6 @@
 #define NGS_H_
 
 #include "Ambient.h"
-#include "Motion.h"
 
 #include <iostream>
 using namespace std;
@@ -18,7 +17,7 @@ class NGS:public Ambiente {
 	//Variables de instancia
 	private:
 		int battle_power;
-		Mociones * mots[1000];
+		string mots[1000];
 		string pr;
 	public:
 		//Default
@@ -27,7 +26,7 @@ class NGS:public Ambiente {
 		NGS(int m,string c,int lv, int bp):
 		  Ambiente(m,c,lv),battle_power(bp){};
 		void calculateBattlePower();
-		string logIn(Cuenta*);
+		void logIn(Cuenta*);
 		void print();
 };
 
@@ -35,13 +34,13 @@ void NGS::calculateBattlePower(){
 	battle_power = (level * 50) + 50;
 };
 
-string NGS::logIn(Cuenta *C){
+void NGS::logIn(Cuenta *C){
+	C->addLog("dia de hoy","horas que sean actualmente.");
     pr = "Bienvenido, "+C->getName()+" a PSO2!";
-	return pr;
 };
 
 void NGS::print(){
 	cout << pr;
-}
+};
 
 #endif

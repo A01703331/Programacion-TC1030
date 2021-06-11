@@ -22,8 +22,8 @@ class Cuenta {
 		string name; //Nombre de la cuenta
 		bool premium; //Si tiene premium activado
 		int pl, AC, SG; // Dias que restan a premium, y divisas
-		Personaje * characters[20]; // Arreglo que guarda los personajes
-		Personaje *current_char;
+		Personaje *characters[20]; // Arreglo que guarda los personajes
+		Personaje *current_char; // Personaje actual
 	public:
 		//Default
 		Cuenta():
@@ -35,10 +35,11 @@ class Cuenta {
 		string getName();
 		void addLog(string date, string hour);
 		void premiumStatus();
-		void addCurrency(int a, int s);
-		void payCurrency(int a, int s);
-		void chooseChar(string cn);
-		void changeClass(string c);
+		void addCurrency(int, int);
+		void payCurrency(int, int);
+		void addChars(string, string);
+		Personaje& chooseChar(string);
+		void changeClass(string);
 };
 
 void Cuenta::setName(string n){
@@ -60,7 +61,7 @@ string Cuenta::getName(){
 */
 
 void Cuenta::addLog(string date, string hour){
-	cout << "Se ha iniciado sesion el " << date << "a las " << hour;
+	cout << "Se ha iniciado sesion el " << date << " a las " << hour;
 };
 /*Agrega un registro de inicio de sesion
  *
@@ -90,14 +91,33 @@ void Cuenta::payCurrency(int a, int s){
 	SG = SG - s;
 };
 
-void Cuenta::chooseChar(string cn){
+
+void Cuenta::addChars(string n, string c){
 	for (int i = 0; i<20; i++){
-		if (cn == characters[i] -> getCharName()){
-			current_char = characters[i];
-			cout << cn << " ha sido seleccionado";
+		if (characters[i] == NULL) {
+			characters[i] = new Personaje(n,c);
+			cout << characters[i]->getCharName() << " ha sido agregado.";
+			cout << endl;
+			break;
 		}
-	}
-	cout << "No se ha encontrado al personaje deseado";
+	};
+};
+
+Personaje& Cuenta::chooseChar(string cn){
+	bool flag = false;
+	for (int i = 0; i<20; i++){
+		if (characters[i] != NULL) {
+			if ((characters[i]->getCharName()) == cn) {
+				current_char = characters[i];
+				cout << cn << " ha sido seleccionado";
+				flag = true;
+				break;
+			}
+		}
+	};
+	if (flag == false){
+		cout << "No se ha encontrado al personaje deseado";
+	};
 };
 
 void Cuenta::changeClass(string c){

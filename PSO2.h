@@ -26,7 +26,7 @@ class PSO2:public Ambiente {
 		  Ambiente(m, c, lv), fun(f){};
 		void addFUN(int f);
 		void payFUN(int f);
-		string logIn(Cuenta*);
+		void logIn(Cuenta*);
 		void print();
 };
 
@@ -38,9 +38,9 @@ void PSO2::payFUN(int f){
 	fun = fun - f;
 };
 
-string PSO2::logIn(Cuenta *C){
+void PSO2::logIn(Cuenta *C){
+	C->addLog("dia de hoy","horas que sean actualmente.");
 	pr = "Bienvenido, "+C->getName()+" a New Genesis!";
-	return pr;
 };
 
 void PSO2::print(){
